@@ -37,4 +37,4 @@ jobs:
           git config --global user.email "b4151069@edu.kit.ac.jp"
           git config --global user.name "Tayra-Sakurai"
           git add .
-          git diff --staged --exit-code || (git commit -m 'ci: ' && git push)
+          git diff --staged --exit-code || (git commit -m 'ci: update built file' && git push)

@@ -6,7 +6,7 @@ inputs:
     description: The base tag
     required: false
   path:
-    description: The paths separated by newline
+    description: The paths for project files separated by newline
     required: true
 
 outputs:
