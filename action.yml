@@ -8,6 +8,9 @@ inputs:
   path:
     description: The paths for project files separated by newline
     required: true
+  appxmanifestpath:
+    description: The path to .appxmanifest and .manifest files separated by newline
+    required: false
 
 outputs:
   release-type:
