@@ -1,0 +1,31 @@
+name: Update Major Version Tag
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  update-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Update major version tag
+        run: |
+          # Extract the major version (e.g., v1.2.3 -> v1)
+          VERSION=${{ github.event.release.tag_name }}
+          MAJOR=${VERSION%%.*}
+
+          # Configure Git user
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@://github.com"
+
+          # Force update the major tag to point to the release commit
+          git tag -fa "$MAJOR" -m "Update $MAJOR tag to $VERSION"
+          git push origin "$MAJOR" --force

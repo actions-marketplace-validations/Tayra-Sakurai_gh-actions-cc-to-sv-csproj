@@ -250,6 +250,11 @@ async function run() {
           patch = String(Number.parseInt(patch) + 1);
           break;
         default:
+          if (suffix.length > 0) {
+            suffix[1] = suffix.length >= 2 ? String(Number.parseInt(suffix[1]) + 1) : '1';
+            build++;
+            break;
+          }
           build++;
           break;
       }
